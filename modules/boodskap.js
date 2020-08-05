@@ -136,8 +136,6 @@ Boodskap.prototype.doLogin = function (data, cbk) {
 
             if (res.statusCode === 200) {
                 cbk(true, JSON.parse(res.body))
-            } else if (res.statusCode === 200) {
-                cbk(false,  JSON.parse(res.body))
             } else {
                 self.logger.error(res.body)
                 cbk(false, res.body)
