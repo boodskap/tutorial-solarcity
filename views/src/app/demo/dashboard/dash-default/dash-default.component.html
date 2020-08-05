@@ -1,0 +1,213 @@
+<div class="row">
+  <!-- table card start -->
+  <div class="col-md-12 col-xl-4">
+    <h5>All Time Status</h5>
+    <app-card [hidHeader]="true" cardClass="flat-card" blockClass="p-0">
+      <div class="row-table">
+        <div class="col-sm-6 card-body br">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="icon feather icon-arrow-up text-c-green mb-1 d-block"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ats_generated}}</h5>
+              <span>Generated</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 card-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="icon feather icon-arrow-down text-c-red mb-1 d-block"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ats_consumed}}</h5>
+              <span>Consumed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-table">
+        <div class="col-sm-12 card-body br">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="icon feather icon-wifi text-c-blue mb-1 d-block"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{ats_distributed}}</h5>
+              <span>Distributed</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-card>
+    <app-card [hidHeader]="true" blockClass="p-0" cardClass="flat-card widget-primary-card">
+      <div class="row-table">
+        <div class="col-sm-3 card-body">
+          <i class="fas fa-bell"></i>
+        </div>
+        <div class="col-sm-9">
+          <h4>{{s_households}}</h4>
+          <h6>Reporting Devices</h6>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-md-12 col-xl-4">
+    <h5>Spread</h5>
+    <app-card [hidHeader]="true" cardClass="flat-card" blockClass="p-0">
+      <div class="row-table">
+        <div class="col-sm-6 card-body br">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fas fa-city text-c-green mb-1 d-block"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{s_communities}}</h5>
+              <span>Communities</span>
+            </div>
+          </div>
+        </div>
+        <div class="col-sm-6 card-body">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fas fa-building text-c-red mb-1 d-block"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{s_households}}</h5>
+              <span>Households</span>
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="row-table">
+        <div class="col-sm-12 card-body br">
+          <div class="row">
+            <div class="col-sm-4">
+              <i class="fas fa-solar-panel text-c-blue mb-1 d-block"></i>
+            </div>
+            <div class="col-sm-8 text-md-center">
+              <h5>{{s_solarpanels}}</h5>
+              <span>Solar Panels</span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </app-card>
+    <app-card [hidHeader]="true" blockClass="p-0" cardClass="flat-card widget-purple-card">
+      <div class="row-table">
+        <div class="col-sm-3 card-body">
+          <i class="fas fa-bell-slash"></i>
+        </div>
+        <div class="col-sm-9">
+          <h4>0</h4>
+          <h6>Non Reporting Devices</h6>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-md-12 col-xl-4">
+    <h5>Top Distributed Community</h5>
+    <app-card [hidHeader]="true" cardClass="support-bar overflow-hidden" blockClass="p-0" [isCardFooter]="true"
+      footerClass="bg-primary text-white">
+      <div class="p-20 pb-0">
+        <h4 class="m-0 text-ellipses" title="{{topCommunity.community}}">{{topCommunity.community}}</h4>
+        <p class="mb-3 mt-3">{{topCommunity.city}} , {{topCommunity.state}} - {{topCommunity.country}}</p>
+        <span class="text-c-blue">Total Households <span class="m-0 text-black"
+            style="color: black;font-size: 20px;">450</span></span>
+      </div>
+      <app-apex-chart chartID="support-chart-1" [chartConfig]="this.supportChartData1"></app-apex-chart>
+      <div class="app-card-footer">
+        <div class="row text-center">
+          <div class="col">
+            <h4 class="m-0 text-white">{{topCommunity.totalgenerated}}</h4>
+            <span>Generated</span>
+          </div>
+          <div class="col">
+            <h4 class="m-0 text-white">{{topCommunity.totalconsumed}}</h4>
+            <span>Consumed</span>
+          </div>
+          <div class="col">
+            <h4 class="m-0 text-white">{{topCommunitDistributed}}</h4>
+            <span>Distributed</span>
+          </div>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <!-- table card end -->
+  <!-- seo start -->
+  <div class="col-xl-4 col-md-12">
+    <app-card [hidHeader]="true">
+      <div class="row align-items-center">
+        <div class="col-6">
+          <h3>{{s_solarpanels}}</h3>
+          <h6 class="text-muted m-b-0">Total Devices<i class="fa fa-caret-down text-c-green m-l-10"></i></h6>
+        </div>
+        <div class="col-6">
+          <app-apex-chart chartID="seo-chart-1" [chartConfig]="this.seoChartData1"></app-apex-chart>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-xl-4 col-md-6">
+    <app-card [hidHeader]="true">
+      <div class="row align-items-center">
+        <div class="col-6">
+          <h3>{{s_communities}}</h3>
+          <h6 class="text-muted m-b-0 f-14">Total Communities<i class="fa fa-caret-up text-c-green m-l-10"></i></h6>
+        </div>
+        <div class="col-6">
+          <app-apex-chart chartID="seo-chart-2" [chartConfig]="this.seoChartData2"></app-apex-chart>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <div class="col-xl-4 col-md-6">
+    <app-card [hidHeader]="true">
+      <div class="row align-items-center">
+        <div class="col-6">
+          <h3>{{s_households}}</h3>
+          <h6 class="text-muted m-b-0 f-14">Total Households<i class="fa fa-caret-down text-c-green m-l-10"></i></h6>
+        </div>
+        <div class="col-6">
+          <app-apex-chart chartID="seo-chart-3" [chartConfig]="this.seoChartData3"></app-apex-chart>
+        </div>
+      </div>
+    </app-card>
+  </div>
+  <!-- seo end -->
+  <!-- project and team member start -->
+  <div class="col-xl-12 col-md-12">
+    <app-card cardTitle="Recently Reported" cardClass="table-card" blockClass="p-0">
+      <div class="table-responsive">
+        <table class="table table-hover mb-0">
+          <thead>
+            <tr>
+              <th>
+                Community
+              </th>
+              <th>Address</th>
+              <th>Generated</th>
+              <th>Consumed</th>
+              <th>Distributed</th>
+            </tr>
+          </thead>
+          <tbody>
+            <tr *ngFor="let data of recentReportList">
+              <td>
+                {{data.community}}
+              </td>
+              <td>{{data.city}}, {{data.state}}-{{data.country}}</td>
+              <td>{{data.totalgenerated}}</td>
+              <td>{{data.totalconsumed}}</td>
+              <td><label class="badge badge-light-success">{{data.totaldistributed.toFixed(2)}}</label></td>
+            </tr>
+
+          </tbody>
+        </table>
+      </div>
+    </app-card>
+  </div>
+  <!-- project and team member end -->
+</div>
