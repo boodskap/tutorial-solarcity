@@ -106,11 +106,14 @@ var sessionObj = {
         maxAge: 5 * 60 * 60 * 1000 //5 hours
     }
 }
-process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 if (process.env.NODE_ENV === 'PROD') {
     app.set('trust proxy', 1) // trust first proxy
     sessionObj.cookie.secure = true // serve secure cookies
 }
+
+process.env.NODE_TLS_REJECT_UNAUTHORIZED = '0';
+
 app.use(expressSession(sessionObj))
 
 
