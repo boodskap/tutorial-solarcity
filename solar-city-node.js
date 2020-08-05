@@ -13,7 +13,7 @@ var cors = require('cors');
 const log4js = require('log4js');
 var logConfig = require('./log4js.json');
 
-const logger = log4js.getLogger('NODE-ANGULAR');
+const logger = log4js.getLogger('SOLAR-CITY');
 
 
 /*******************************
@@ -27,7 +27,7 @@ app.use(cors())
 var conf = {};
 
 try {
-    conf = require(process.env.HOME + '/config/gatekeeper-config');
+    conf = require(process.env.HOME + '/config/solar-city-config');
     console.log(new Date() + ' | Application Configuration Loaded From Config');
 } catch (e) {
     console.log(new Date() + ' | Default Configuration Loaded');
