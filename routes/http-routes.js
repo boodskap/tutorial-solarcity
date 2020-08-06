@@ -22,42 +22,6 @@ module.exports = Routes;
 
 Routes.prototype.init = function () {
     const self = this;
-    var sessionCheck = function (req, res, next) {
-        var sessionObj = req.session['sessionObj'];
-        if (sessionObj && sessionObj.login) {
-            self.users.auditlogs('Page View', req);
-            next();
-        } else {
-            req.session['sessionObj'] = null;
-            req.session['user_session'] = null;
-            req.session['challenges'] = null;
-            req.session['challengeId'] = null;
-            res.render('index.html')
-        }
-    };
-
-    var apiSessionCheck = function (req, res, next) {
-        var sessionObj = req.session['sessionObj'];
-        if (sessionObj && sessionObj.login) {
-            self.users.auditlogs('API', req);
-            next();
-        } else {
-            req.session['sessionObj'] = null;
-            req.session['user_session'] = null;
-            req.session['challenges'] = null;
-            req.session['challengeId'] = null;
-            res.status(417).json({ status: false });
-        }
-    };
-
-    var loginSession = function (req, res, next) {
-        var sessionObj = req.session['user_session'];
-        if (sessionObj) {
-            next();
-        } else {
-            res.status(401).json({ status: false, message: 'Unauthorized Access' })
-        }
-    };
 
     //Initial Route
  
