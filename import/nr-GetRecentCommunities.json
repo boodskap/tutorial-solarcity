@@ -1,0 +1,1 @@
+{"type":3,"data":{"lang":"GROOVY","code":"def rid = 1002;\n\ndef query = [from:0, size:15];\ndef sort = ['stamp':['order':'desc']];\nquery.sort=sort;\n\ndef result = rules.invoke([query:query, rid:rid], 'SearchRecords');\n\nreturn result;\n","name":"GetRecentCommunities"}}

@@ -1,0 +1,1 @@
+{"type":2,"data":{"lang":"GROOVY","code":"log.info(msg.toString());\n\nfor(long i=1000;i<=1007;i++){\n    log.info(\"Purging record %d\", i);\n    record.clear((long)i);\n}\n\n//record.clear(2000);\n//record.clear(2001);\n//record.clear(2003);\n\nlog.info(\"All records purged\");","messageId":1001}}

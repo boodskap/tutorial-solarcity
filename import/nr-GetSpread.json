@@ -1,0 +1,1 @@
+{"type":3,"data":{"lang":"GROOVY","code":"\ndef spread = [:];\n\nspread['communities'] = record.count(2000);\nspread['households'] = record.count(2001);\nspread['devices'] = record.count(2003);\n\nreturn spread;\n","name":"GetSpread"}}

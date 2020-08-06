@@ -67,30 +67,6 @@ app.use('/', express.static(path.join(__dirname, 'views/dist/ng-flat-able')));
 app.get('*',(req,res) =>{
     res.sendFile(path.join(__dirname,'views/dist/ng-flat-able/index.html'));
 });
-// var options = {
-//     maxAge: '1d',
-//     setHeaders: function (res, path, stat) {
-//         res.set('vary', 'Accept-Encoding');
-//         res.set('x-timestamp', Date.now());
-//     }
-// };
-
-// app.use('/css', express.static(__dirname + '/webapps/css', options));
-// app.use('/images', express.static(__dirname + '/webapps/images', options));
-// app.use('/plugins', express.static(__dirname + '/webapps/plugins', options));
-// app.use('/fonts', express.static(__dirname + '/webapps/fonts', options));
-
-
-// var controllerOptions = {
-//     maxAge: 0,
-//     setHeaders: function (res, path, stat) {
-//         res.set('vary', 'Accept-Encoding');
-//         res.set('x-timestamp', Date.now());
-//     }
-// };
-
-// app.use('/js', express.static(__dirname + '/webapps/js', controllerOptions));
-// app.use(express.static(__dirname + '/webapps', controllerOptions));
 
 
 app.use(layout());
