@@ -12,7 +12,7 @@ var platformConfig = {};
 
 try {
     conf = require(process.env.HOME + '/config/solar-city-config');
-    console.log(new Date() + ' | Kiosk Configuration Loaded From Config');
+    console.log(new Date() + ' | Solar City Configuration Loaded From Config');
 } catch (e) {
     console.error(e);
     return;
